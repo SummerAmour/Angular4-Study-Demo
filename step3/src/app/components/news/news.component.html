@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Hello, Angular</h2>
+
+  <button (click)="requestData()">请求数据</button>
+  <br><br>
+  <button (click)="requestJsonpData()">请求JSONP数据</button>
+  <br><br>
+  <button (click)="postData()">提交数据</button>
+
+  <br><br>
+
+  <ul>
+    <li *ngFor="let item of list">
+      {{item.title}}
+    </li>
+  </ul>
+</div>
