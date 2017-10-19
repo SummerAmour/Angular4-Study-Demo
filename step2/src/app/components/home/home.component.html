@@ -1,0 +1,110 @@
+<app-header></app-header>
+<div class="container">
+  <h3>Angular 4 基本使用</h3>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-muted">数据绑定</h4>
+      <div class="card-subtitle">文本数据绑定</div>
+      {{ msg }} -- {{ student }}
+      <br>
+      获取文本数据
+      <button class="btn" (click)="getMsg()">CLICK</button>
+      <br><br>
+      <div>通过自定义点击事件，改变已绑定的文本数据</div>
+      {{ username }}
+      <button class="btn" (click)="setName()">Change Username</button>
+      <br><br>
+
+      <h4 class="card-subtitle text-muted">绑定属性</h4>
+      <div class="card-text">
+        <div id="{{id}}">我是一个有id属性的div</div>
+        <div [title]="msg">鼠标过来，告诉你一些秘密</div>
+      </div>
+      <br><br>
+
+      <h4 class="card-subtitle text-muted">绑定带有html标签的数据</h4>
+      {{html}}
+      <span class="alert alert-info">只使用双花括号，是不能解读标签的</span>
+      <div [innerHTML]="html">我是不显示的</div>
+      <div class="alert alert-light">当然我可以用另一种方法进行解读</div>
+
+      <div class="alert alert-light">
+        <p>声明属性的3种方法：</p>
+        <ol>
+          <li>public:共有的，可以再这个类里面使用，也可以在这个类外面使用</li>
+          <li>protected:保护类型，只有在当前类和它的子类中使用</li>
+          <li>private:私有，只有在当前类中才能访问这个属性</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-muted">条件判断</h4>
+      <div *ngIf="flag">触发某个按钮我是会消失的哦！</div>
+      <br><br>
+      <button class="btn" (click)="flag = !flag">Magic</button>
+      <p>注意：Angular4中，像++，--等这些运算符是不能使用的。</p>
+    </div>
+  </div>
+  <br>
+
+  <div class="card">
+    <input type="text" (keyup)="keyupFn($event)" placeholder="输入完毕敲回车，有惊喜">
+    <br><br>
+    <button class="btn" (click)="run($event)">Catch Event Object</button>
+  </div>
+  <br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-muted">双向数据绑定</h4>
+      <input type="text" [(ngModel)]="search">
+      {{search}}
+      <br><br>
+      <button class="btn" (click)="getSearch()">获取input的值</button>
+      <div class="alert alert-info">
+        双向数据绑定，必须要引入FormsModule模块
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-subtitle text-muted">循环</h4>
+      <div class="container">
+        <div>Favorite</div>
+        <ul>
+          <li *ngFor="let item of list">{{ item }}</li>
+        </ul>
+        <div>我还有index</div>
+        <ul>
+          <li *ngFor="let item of list;let i = index">{{ item }} -- {{ i }}</li>
+        </ul>
+      </div>
+
+      <div>循环json类型数据</div>
+      <ul>
+        <li *ngFor="let item of list2;let i = index">
+          {{ item.speaking }} --- {{ i }}
+        </li>
+      </ul>
+
+      <div>循环复杂的json数据</div>
+      <ul>
+        <li *ngFor="let item of list3;let i = index">
+          {{item.tacher}} -- {{ i }}
+          <ol>
+            <li *ngFor="let stu of item.student">
+              {{ stu.name }}
+            </li>
+          </ol>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
