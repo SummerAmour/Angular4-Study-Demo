@@ -1,36 +1,3 @@
-// import { RouterModule } from '@angular/router';
-
-// export const routes = [
-//     {
-//         path: 'index',
-//         loadChildren: './components/index/index.module#IndexModule'
-//     },
-//     {
-//         path: 'order',
-//         loadChildren: './components/order/order.module#OrderModule'
-//     },
-//     {
-//         path: 'sample', 
-//         loadChildren: './components/sample/sample.module#SampleModule'
-//     },
-//     {
-//         path: 'experiment',
-//         loadChildren: './components/experiment/experiment.module#ExperimentModule'
-//     },
-//     {
-//         path: 'check',
-//         loadChildren: './components/check/check.module#CheckModule'
-//     },
-//     {
-//         path: 'system',
-//         loadChildren: './components/system/system.module#SystemModule'
-//     },
-//     {
-//         path: '**', 
-//         redirectTo: 'index',
-//          pathMatch: 'full'
-//     }
-// ];
 import { RouterModule } from '@angular/router';
 import { OrderApplyComponent } from './components/order/order-apply/order-apply.component';
 import { OrderCheckComponent } from './components/order/order-check/order-check.component';
@@ -147,22 +114,6 @@ export const routes = [
         path: 'system/process',
         component: TestProcessComponent
     },
-    // {
-    //     path: 'sample', 
-    //     loadChildren: './components/sample/sample.module#SampleModule'
-    // },
-    // {
-    //     path: 'experiment',
-    //     loadChildren: './components/experiment/experiment.module#ExperimentModule'
-    // },
-    // {
-    //     path: 'check',
-    //     loadChildren: './components/check/check.module#CheckModule'
-    // },
-    // {
-    //     path: 'system',
-    //     loadChildren: './components/system/system.module#SystemModule'
-    // },
     {
         path: '**', 
         redirectTo: 'index',

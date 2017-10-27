@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-// import { NgZorroAntdModule } from 'ng-zorro-antd';
-// import { CommonModule } from '@angular/common';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from './index.component';
 import { BacklogComponent } from './backlog/backlog.component';
@@ -18,8 +18,8 @@ import { routes } from './index.router';
     SearchComponent
   ],
   imports: [
-    // NgZorroAntdModule,
-    // CommonModule,
+    NgZorroAntdModule,
+    CommonModule,
     RouterModule.forChild(routes),
     FormsModule
   ],
