@@ -1,0 +1,12 @@
+/* header样式 */
+.header{
+    background: #c3bed4;
+    height: 80px;
+    color: #eee;
+    position: relative;
+    top: 0;
+    left: 0;
+    line-height: 80px;
+    font-size: 30px;
+    padding-left: 50px;
+}
