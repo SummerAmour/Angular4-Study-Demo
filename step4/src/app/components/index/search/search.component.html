@@ -1,0 +1,17 @@
+<nz-datepicker style="width: 40%;" (ngModelChange)="_startDate=$event;_startValueChange()" [ngModel]="_startDate" [nzDisabledDate]="_disabledStartDate" [nzShowTime]="true" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'Start date'"></nz-datepicker>
+<nz-datepicker style="width: 40%;" (ngModelChange)="_endDate=$event;_endValueChange()" [ngModel]="_endDate" [nzDisabledDate]="_disabledEndDate" [nzShowTime]="_endTime" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'End date'"></nz-datepicker>
+<br><br><br>
+<nz-select style="width: 120px;" [(ngModel)]="selectedOption" nzAllowClear>
+  <nz-option
+    *ngFor="let option of options"
+    [nzLabel]="option.label"
+    [nzValue]="option"
+    [nzDisabled]="option.disabled">
+  </nz-option>
+</nz-select>
+<br>
+<br>
+<br>
+<!-- <button nz-button [nzType]="'primary'" (click)="showModalForComponent()">
+  <span>使用Component</span>
+</button> -->

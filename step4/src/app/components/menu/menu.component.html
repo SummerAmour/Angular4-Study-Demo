@@ -1,0 +1,77 @@
+<!-- <div class="menuLeft">
+  <div class="menuCon">
+      <a routerLink="/index" RouterLinkActive="active">首页</a>
+      <a routerLink="/order" RouterLinkActive="active">提报委托单</a>
+      <a routerLink="/sample" RouterLinkActive="active">样品接收与流转</a>
+      <a routerLink="/experiment" RouterLinkActive="active">实验过程</a>
+      <a routerLink="/check" RouterLinkActive="active">检测结果查询</a>
+      <a routerLink="/system" RouterLinkActive="active">系统自动排程</a>
+  </div>
+</div> -->
+<!-- <nz-layout>
+  <nz-sider [nzWidth]="200" style="background:#fff;">
+    <li nz-submenu>
+        <span title><i class="anticon anticon-notification"></i>检测结果查询</span>
+        <ul>
+          <li nz-menu-item>试验报告查询与归档</li>
+        </ul>
+      </li>
+  </nz-sider>
+</nz-layout>   -->
+<div class="menuLeft">
+  <ul nz-menu [nzMode]="'inline'">
+    <!-- <li nz-submenu> -->
+      <span title style="padding-left: 24px;">
+        <i class="anticon anticon-user"></i>
+        <a routerLink="index">首页</a>
+      </span>
+    <!-- </li> -->
+    <li nz-submenu>
+      <span title><i class="anticon anticon-laptop"></i><a routerLink="order">提报委托单</a></span>
+      <ul>
+        <li nz-menu-item><a routerLink="/order/apply">委托申请</a></li>
+        <li nz-menu-item><a routerLink="/order/check">委托单审批</a></li>
+        <li nz-menu-item><a routerLink="/order/peopleCheck">业务负责人审批</a></li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-notification"></i>样品接收与流转</span>
+      <ul>
+        <li nz-menu-item routerLink="sample/putInOut">样品入库与发放</li>
+        <li nz-menu-item routerLink="sample/commonTurn">常规检测试验样品流转</li>
+        <li nz-menu-item routerLink="sample/accurateTurn">精测试验样品流转</li>
+        <li nz-menu-item routerLink="sample/phyTurn">理化试验样品流转</li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-notification"></i>试验过程</span>
+      <ul>
+        <li nz-menu-item routerLink="check/commonUpload">常规检测数据上传</li>
+        <li nz-menu-item routerLink="check/accurateUpload">精测数据上传</li>
+        <li nz-menu-item routerLink="check/accurateCheckout">精测数据校验</li>
+        <li nz-menu-item routerLink="check/pyUpload">理化数据上传</li>
+        <li nz-menu-item routerLink="check/pyCheckout">理化数据校验</li>
+        <li nz-menu-item routerLink="check/testResult">试验结论审验</li>
+        <li nz-menu-item routerLink="check/orderIce">任务单冻结记录</li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-notification"></i>检测结果查询</span>
+      <ul>
+        <li nz-menu-item routerLink="search/report">试验报告查询与归档</li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-notification"></i>系统自动排查</span>
+      <ul>
+        <li nz-menu-item routerLink="system/simulate">模拟排程</li>
+        <li nz-menu-item routerLink="system/condition">排程条件</li>
+        <li nz-menu-item routerLink="system/step">操作步骤</li>
+        <li nz-menu-item routerLink="system/set">工序设置</li>
+        <li nz-menu-item routerLink="system/schdule">实验与排程</li>
+        <li nz-menu-item routerLink="system/processInfluence">实验过程干预</li>
+        <li nz-menu-item routerLink="system/process">实验过程</li>
+      </ul>
+    </li>
+  </ul>
+</div>
