@@ -10,18 +10,25 @@ import { RemindComponent } from './remind/remind.component';
 import { SearchComponent } from './search/search.component';
 import { routes } from './index.router';
 
+//导入component弹出层组件
+import { DemoComponent } from './search/demo.component';
+
 @NgModule({
   declarations: [
     IndexComponent,
     BacklogComponent,
     RemindComponent,
-    SearchComponent
+    SearchComponent,
+    DemoComponent
   ],
   imports: [
     NgZorroAntdModule,
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule
+  ],
+  entryComponents: [
+    DemoComponent
   ],
   providers: []
 })

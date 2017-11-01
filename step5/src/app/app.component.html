@@ -1,8 +1,16 @@
-<!-- 头部组件 -->
-<app-header></app-header>
-<!-- 左边菜单导航组件 -->
-<app-menu></app-menu>
-<!-- 右边内容显示部分 -->
-<div class="contentShow">
-    <router-outlet></router-outlet>
-</div>
+<nz-layout>
+    <nz-header>
+        <app-header></app-header>
+    </nz-header>
+    <nz-layout>
+        <nz-sider>
+            <app-menu></app-menu>
+        </nz-sider>
+        <nz-layout>
+            <nz-content class="contentShow">
+                <router-outlet></router-outlet>
+            </nz-content>
+        </nz-layout>
+    </nz-layout>
+</nz-layout>
+

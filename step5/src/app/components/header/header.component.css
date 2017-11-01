@@ -3,10 +3,12 @@
     background: #c3bed4;
     height: 80px;
     color: #eee;
-    position: relative;
+    position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     line-height: 80px;
     font-size: 30px;
     padding-left: 50px;
+    z-index: 10;
 }

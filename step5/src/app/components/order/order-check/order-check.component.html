@@ -1,3 +1,93 @@
-<p>
-  order-check works!
-</p>
+<button nz-button (click)="showModal()" [nzType]="'primary'">
+  使用文本 
+</button>
+<button nz-button (click)="showModalForTemplate(title, content, footer)" [nzType]="'primary'">
+  使用模板  
+</button>
+<!-- 模板内容 -->
+<ng-template #title>
+  对话框标题模板
+</ng-template>
+<ng-template #content>
+  <div>
+    <p>CONTENT</p>
+    <p>CONTENT</p>
+    <p>CONTENT</p>
+  </div>
+</ng-template>
+<ng-template #footer>
+  <div>
+    <button nz-button (click)="handleOk($event)" [nzLoading]="isConfirmLoading" [nzType]="'primary'">
+        Sbu mit
+    </button>
+  </div>
+</ng-template>
+
+<button nz-button (click)="shouModalForComponent()" [nzType]="'primary'">
+  使用Component
+</button>
+<br><br>
+<button nz-button (click)="reset()" [nzType]="'primary'" [nzSize]="'large'">Reset</button>
+
+<br><br>
+<!-- 表格部分 -->
+<div>
+  <nz-table #nzTable [nzDataSource]="data" [nzPageSize]="10" nzBordered=true>
+      <thead nz-thead>
+          <tr>
+              <th nz-th><span>ID</span></th>
+              <th nz-th><span>NAME</span></th>
+              <th nz-th><span>OPERATE</span></th>
+          </tr>
+      </thead>
+      <tbody nz-tbody>
+          <tr nz-tbody-tr *ngFor="let i of nzTable.data">
+              <td nz-td>{{i.id}}</td>
+              <td nz-td>{{i.name}}</td>
+              <td nz-td>
+                  <span>
+                    <a (click)="edit(i)">编辑</a>
+                    <span nz-table-divider></span>
+                    <nz-popconfirm [nzTitle]="'确定要删除吗？'"(nzOnCancel)="confirm(i)" (nzOnConfirm)="del(i)" >
+                        <a nz-popconfirm>删除</a>
+                    </nz-popconfirm>
+                    <span nz-table-divider></span>
+                  </span>
+              </td>
+          </tr>
+      </tbody>
+  </nz-table>
+</div>
+
+<!-- <nz-card>
+    <ng-template #title>
+      Guess: Can I delete a data?
+    </ng-template>
+    <ng-template #body>
+        <ul>
+          <li *ngFor="let i of list">
+            {{i.name}}  ------  <button nz-button (click)="dl(i)" [nzType]="'primary'" [nzSize]="">DEL</button>
+          </li>
+        </ul>
+    </ng-template>
+</nz-card> -->
+
+<!-- <table border="1" cellspacing="10">
+  <tr *ngFor="let i of list">
+    <td>{{i.name}}</td>
+    <td>{{i.age}}</td>
+    <td><button nz-button (click)="dl(i)" [nzType]="'primary'" [nzSize]="">DEL</button></td>
+  </tr>
+</table> -->
+
+<nz-table #tab [nzDataSource]="list" nzIsPagination=false>
+    <tbody nz-tbody>
+        <tr nz-tbody-tr *ngFor="let i of tab.data">
+            <td nz-td>{{i.name}}</td>
+            <td nz-td>{{i.age}}</td>
+            <td nz-td>
+              <button nz-button (click)="dl(i)" [nzType]="'primary'" [nzSize]="">DEL</button>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

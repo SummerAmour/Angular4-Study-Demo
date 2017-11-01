@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
@@ -34,6 +34,8 @@ import { SetComponent } from './components/system/set/set.component';
 import { TestScheduleComponent } from './components/system/test-schedule/test-schedule.component';
 import { TestProcessInfluenceComponent } from './components/system/test-process-influence/test-process-influence.component';
 import { TestProcessComponent } from './components/system/test-process/test-process.component';
+//传递数据的弹出框
+import { ModalTestComponent } from './components/order/order-check/modal-test.component';
 
 @NgModule({
   declarations: [
@@ -61,15 +63,20 @@ import { TestProcessComponent } from './components/system/test-process/test-proc
     SetComponent,
     TestScheduleComponent,
     TestProcessInfluenceComponent,
-    TestProcessComponent
+    TestProcessComponent,
+    ModalTestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
     RouterModule.forRoot(routes)
+  ],
+  entryComponents: [
+    ModalTestComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
