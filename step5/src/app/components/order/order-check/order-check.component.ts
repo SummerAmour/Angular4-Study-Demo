@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ModalTestComponent } from './modal-test.component';
+import { EditComponent } from './edit.component';
 
 @Component({
   selector: 'app-order-check',
@@ -11,6 +12,8 @@ import { ModalTestComponent } from './modal-test.component';
 export class OrderCheckComponent implements OnInit {
   currentModal;
   isConfirmLoading = false;
+
+  searchValue = '';
 
   constructor(private modalService: NzModalService ) { }
 
@@ -75,21 +78,21 @@ export class OrderCheckComponent implements OnInit {
 
   /* 表格部分代码 */
   data = [
-    {id: 1, name: 'Jun'},
-    {id: 2, name: 'Jun'},
-    {id: 3, name: 'Jun'},
-    {id: 4, name: 'Jun'},
-    {id: 5, name: 'Jun'},
-    {id: 6, name: 'Jun'},
-    {id: 7, name: 'Jun'}
+    {id: 1, name: 'Jun1'},
+    {id: 2, name: 'Jun2'},
+    {id: 3, name: 'Jun3'},
+    {id: 4, name: 'Jun4'},
+    {id: 5, name: 'Jun5'},
+    {id: 6, name: 'Jun6'},
+    {id: 7, name: 'Jun7'}
   ];
   copyData = [...this.data];
 
   /* 编辑表格中的数据 */
   edit(obj) {
     const editModal = this.modalService.open({
-      title: '表格内容修改',
-      content: ModalTestComponent,
+      title: '编辑表格',
+      content: EditComponent,
       onOk(){
       },
       onCancel(){
@@ -97,7 +100,7 @@ export class OrderCheckComponent implements OnInit {
       },
       footer: false,
       componentParams: {
-        name: '测试渲染Component'
+        info: obj.id
       }
     });
     editModal.subscribe(result => {
@@ -113,44 +116,40 @@ export class OrderCheckComponent implements OnInit {
 
     console.log(this.data); */
     // console.log(obj.parentNode);
+    // window.reload=] = ‘’；
+
+    /* 刷新表格 */
+    this.reset();
   }
 
   //刷新表格
   reset(){
-    var befo = this.data;
-    console.log(befo);
-    this.data = [];
+    // var befo = this.data;
+    // console.log(befo);
+    // this.data = [];
+    // console.log(this.data);
+    // this.data = befo;
+    // console.log(this.data);
+
+    // console.log("原表格data：" + this.data);
     console.log(this.data);
-    this.data = befo;
+    // console.log(this.copyData);
+    // console.log("copy表格copyData："+this.copyData);
+
+    const filterFunc = (item) => {
+      return (item.name.indexOf(this.searchValue) !== -1);
+    };
+    this.data = [...this.copyData.filter(item => filterFunc(item))];
+    // this.data.filter(item => filterFunc(item));
     console.log(this.data);
+
+    // const filterFunc = (item) => {
+    //   return (item.name.indexOf(this.searchValue) !== -1);
+    // };
+    // this.data = [...this.copyData.filter(item => filterFunc(item))];
   }
 
   ngOnInit() {
-  }
-
-  list = [
-    {
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    }, {
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    }, {
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    }, {
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
-    }
-  ];
-
-  dl(obj){
-    console.log(obj);
-    this.list.splice(obj, 1);
   }
 
 }

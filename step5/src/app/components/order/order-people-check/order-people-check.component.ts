@@ -71,22 +71,24 @@ export class OrderPeopleCheckComponent implements OnInit {
   }
 
   search() {
-    const searchAddress = this.filterAddressArray.filter(address => address.value);
-    console.log(searchAddress)
+    // const searchAddress = this.filterAddressArray.filter(address => address.value);
+    // console.log(searchAddress)
     const filterFunc = (item) => {
-      return (searchAddress.length ? searchAddress.some(address => item.address.indexOf(address.name) !== -1) : true)
-              && (item.name.indexOf(this.searchValue) !== -1)
+      // return (searchAddress.length ? searchAddress.some(address => item.address.indexOf(address.name) !== -1) : true)
+      //         && (item.name.indexOf(this.searchValue) !== -1)
+      return (item.name.indexOf(this.searchValue) !== -1);
     };
     this.data = [...this.copyData.filter(item => filterFunc(item))];
-    this.data = [...this.data.sort((a, b) => {
-      if(a[this.sortName] > b[this.sortName]){
-        return (this.sortValue === 'ascend') ? 1 : -1;
-      }else if(a[this.sortName] < b[this.sortName]){
-        return (this.sortValue === 'ascend') ? -1 : 1;
-      }else{
-        return 0;
-      }
-    })]
+    console.log(this.data);
+    // this.data = [...this.data.sort((a, b) => {
+    //   if(a[this.sortName] > b[this.sortName]){
+    //     return (this.sortValue === 'ascend') ? 1 : -1;
+    //   }else if(a[this.sortName] < b[this.sortName]){
+    //     return (this.sortValue === 'ascend') ? -1 : 1;
+    //   }else{
+    //     return 0;
+    //   }
+    // })]
 
   }
 

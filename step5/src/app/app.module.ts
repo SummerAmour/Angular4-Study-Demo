@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { HttpClientModule, HttpParams } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -36,6 +38,10 @@ import { TestProcessInfluenceComponent } from './components/system/test-process-
 import { TestProcessComponent } from './components/system/test-process/test-process.component';
 //传递数据的弹出框
 import { ModalTestComponent } from './components/order/order-check/modal-test.component';
+import { EditComponent } from './components/order/order-check/edit.component';
+
+//服务
+import { ReportService } from './components/search/report/report.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +70,8 @@ import { ModalTestComponent } from './components/order/order-check/modal-test.co
     TestScheduleComponent,
     TestProcessInfluenceComponent,
     TestProcessComponent,
-    ModalTestComponent
+    ModalTestComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -73,12 +80,16 @@ import { ModalTestComponent } from './components/order/order-check/modal-test.co
     HttpModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   entryComponents: [
-    ModalTestComponent
+    ModalTestComponent,
+    EditComponent
   ],
-  providers: [],
+  providers: [
+    ReportService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,6 +27,7 @@
   使用Component
 </button>
 <br><br>
+<nz-input [(ngModel)]="searchValue" [nzPlaceHolder]="'Search'" [nzSize]="'large'"></nz-input>
 <button nz-button (click)="reset()" [nzType]="'primary'" [nzSize]="'large'">Reset</button>
 
 <br><br>
@@ -80,14 +81,4 @@
   </tr>
 </table> -->
 
-<nz-table #tab [nzDataSource]="list" nzIsPagination=false>
-    <tbody nz-tbody>
-        <tr nz-tbody-tr *ngFor="let i of tab.data">
-            <td nz-td>{{i.name}}</td>
-            <td nz-td>{{i.age}}</td>
-            <td nz-td>
-              <button nz-button (click)="dl(i)" [nzType]="'primary'" [nzSize]="">DEL</button>
-            </td>
-        </tr>
-    </tbody>
-</nz-table>
+

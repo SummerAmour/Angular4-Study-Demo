@@ -1,3 +1,61 @@
-<p>
-  common-check-turn works!
-</p>
+<!-- <form nz-form [formGroup]="groupName" (ngSubmit)="_submitForm($event, groupName.value)" [nzLayout]="'inline'">
+    <div nz-form-item>
+      <nz-datepicker style="width: 40%;" (ngModelChange)="_startDate=$event;_startValueChange()" [ngModel]="_startDate" [nzDisabledDate]="_disabledStartDate"
+        [nzShowTime]="true" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'Start date'"></nz-datepicker>
+      <nz-datepicker style="width: 40%;" (ngModelChange)="_endDate=$event;_endValueChange()" [ngModel]="_endDate" [nzDisabledDate]="_disabledEndDate"
+        [nzShowTime]="_endTime" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'End date'"></nz-datepicker>
+    </div>
+</form> -->
+
+<form nz-form [formGroup]="validateForm" [nzLayout]="'inline'">
+  <div nz-row [nzGutter]="40">
+    <div nz-form-item>
+      <div nz-form-control>
+        <div nz-form-label>
+           日期范围：
+        </div>
+        <nz-datepicker style="width: 40%;" [formControlName]="'startDate'" (ngModelChange)="_startDate=$event;_startValueChange()"
+          [ngModel]="_startDate" [nzDisabledDate]="_disabledStartDate" [nzShowTime]="true" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'Start date'"></nz-datepicker>
+        <nz-datepicker style="width: 40%;" [formControlName]="'endDate'" (ngModelChange)="_endDate=$event;_endValueChange()" [ngModel]="_endDate"
+          [nzDisabledDate]="_disabledEndDate" [nzShowTime]="_endTime" [nzFormat]="'YYYY-MM-DD HH:mm:ss'" [nzPlaceHolder]="'End date'"></nz-datepicker>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <div nz-form-label >
+          零件号：
+        </div>
+        <div>
+          <nz-input [nzPlaceHolder]="'零件号'" [nzSize]="'large'" formControlName="ljh"></nz-input>
+        </div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <div nz-form-label>
+          零件名称：
+        </div>
+        <div>
+          <nz-input [nzPlaceHolder]="'零件名称'" [nzSize]="'large'" formControlName="ljmc"></nz-input>
+        </div>
+      </div>
+    </div>
+    <div nz-form-item nz-row>
+      <div nz-form-control>
+        <div nz-form-label>
+          零件图号：
+        </div>
+        <div>
+          <nz-input [nzPlaceHolder]="'零件图号'" [nzSize]="'large'" formControlName="ljth"></nz-input>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div nz-row>
+    <div nz-col [nzSpan]="24" style="text-align: right;">
+      <button nz-button [nzType]="'primary'">Search</button>
+      <button nz-button (click)="resetForm()">Clear</button>
+    </div>
+  </div>
+</form>
